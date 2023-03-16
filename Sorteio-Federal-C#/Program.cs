@@ -11,16 +11,20 @@ namespace Project
     static void Main(string[] args)
     {
       //Solução que recebe o último número sorteado da federal e cria um sorteio com maior porcentagem de acerto.
-      int nSort = 59011;
+      int nSort = 94456;
       Random random = new Random();
       int num = random.Next(0, 100001);
       string numString = num.ToString();
-      int digito1 = int.Parse(numString[0].ToString());//5
-      int digito2 = int.Parse(numString[1].ToString());//9
-      int digito3 = int.Parse(numString[2].ToString());//0
-      int digito4 = int.Parse(numString[3].ToString());//1
-      int digito5 = int.Parse(numString[4].ToString());//1
-      if (num >= nSort || digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5 || digito1 == digito5 || digito2 == digito4 || digito1 == 5 || digito2 >= 8 || digito3 <= 1 || digito4 <= 1 || digito5 <= 1 || digito1 + 1 == digito2 || digito2 + 1 == digito3 ||digito3 + 1 == digito4 || digito4 + 1 == digito5)
+      if (numString.Length < 5)
+      {
+        numString = numString.PadLeft(5, '0');
+      }
+      int digito1 = int.Parse(numString[0].ToString());//9
+      int digito2 = int.Parse(numString[1].ToString());//4
+      int digito3 = int.Parse(numString[2].ToString());//4
+      int digito4 = int.Parse(numString[3].ToString());//5
+      int digito5 = int.Parse(numString[4].ToString());//6
+      if (num + 10000 >= nSort || digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5 || digito1 == digito5 || digito2 == digito4 || digito1 >= 8 || digito2 == 4 || digito3 == 4 || digito4 == 5 || digito5 == 6 || digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5)
       {
         Console.WriteLine($"Caiu no primeiro if num: {num}");
         Random random2 = new Random();
@@ -31,7 +35,7 @@ namespace Project
         int digito3n2 = int.Parse(num2String[2].ToString());
         int digito4n2 = int.Parse(num2String[3].ToString());
         int digito5n2 = int.Parse(num2String[4].ToString());
-        if (num2 >= nSort || digito1n2 == digito2n2 || digito2n2 == digito3n2 || digito3n2 == digito4n2 || digito4n2 == digito5n2 || digito1n2 == digito5n2 || digito2n2 == digito4n2 || digito1n2 == 5 || digito2n2 >= 8 || digito3n2 <= 1 || digito4n2 <= 1 || digito5n2 <= 1 || digito1n2 + 1 == digito2n2 || digito2n2 + 1 == digito3n2 ||digito3n2 + 1 == digito4n2 || digito4n2 + 1 == digito5n2)
+        if (num2 + 10000 >= nSort || digito1n2 == digito2n2 || digito2n2 == digito3n2 || digito3n2 == digito4n2 || digito4n2 == digito5n2 || digito1n2 == digito5n2 || digito2n2 == digito4n2 || digito1n2 >= 8 || digito2n2 == 4 || digito3n2 == 4 || digito4n2 == 5 || digito5n2 == 6 || digito1n2 == digito2n2 || digito2n2 == digito3n2 || digito3n2 == digito4n2 || digito4n2 == digito5n2)
         {
           Console.WriteLine($"Caiu no segundo if num: {num2}");
           Random random3 = new Random();
@@ -42,7 +46,7 @@ namespace Project
           int digito3n3 = int.Parse(num3String[2].ToString());
           int digito4n3 = int.Parse(num3String[3].ToString());
           int digito5n3 = int.Parse(num3String[4].ToString());
-          if (num3 >= nSort || digito1n3 == digito2n3 || digito2n3 == digito3n3 || digito3n3 == digito4n3 || digito4n3 == digito5n3 || digito1n3 == digito5n3 || digito2n3 == digito4n3 || digito1n3 == 5 || digito2n3 >= 8 || digito3n3 <= 1 || digito4n3 <= 1 || digito5n3 <= 1 || digito1n3 + 1 == digito2n3 || digito2n3 + 1 == digito3n3 ||digito3n3 + 1 == digito4n3 || digito4n3 + 1 == digito5n3)
+          if (num3 + 10000 >= nSort || digito1n3 == digito2n3 || digito2n3 == digito3n3 || digito3n3 == digito4n3 || digito4n3 == digito5n3 || digito1n3 == digito5n3 || digito2n3 == digito4n3 || digito1n3 >= 8 || digito2n3 == 4 || digito3n3 == 4 || digito4n3 == 5 || digito5n3 == 6 || digito1n3 == digito2n3 || digito2n3 == digito3n3 || digito3n3 == digito4n3 || digito4n3 == digito5n3)
           {
             Console.WriteLine($"Caiu no terceiro if num: {num3}");
             Random random4 = new Random();
@@ -53,7 +57,7 @@ namespace Project
             int digito3n4 = int.Parse(num4String[2].ToString());
             int digito4n4 = int.Parse(num4String[3].ToString());
             int digito5n4 = int.Parse(num4String[4].ToString());
-            if (num4 >= nSort || digito1n4 == digito2n4 || digito2n4 == digito3n4 || digito3n4 == digito4n4 || digito4n4 == digito5n4 || digito1n4 == digito5n4 || digito2n4 == digito4n4 || digito1n4 == 5 || digito2n4 >= 8 || digito3n4 <= 1 || digito4n4 <= 1 || digito5n4 <= 1 || digito1n4 + 1 == digito2n4 || digito2n4 + 1 == digito3n4 ||digito3n4 + 1 == digito4n4 || digito4n4 + 1 == digito5n4)
+            if (num4 + 10000 >= nSort || digito1n4 == digito2n4 || digito2n4 == digito3n4 || digito3n4 == digito4n4 || digito4n4 == digito5n4 || digito1n4 == digito5n4 || digito2n4 == digito4n4 || digito1n4 >= 8 || digito2n4 == 4 || digito3n4 == 4 || digito4n4 == 5 || digito5n4 == 6 || digito1n4 == digito2n4 || digito2n4 == digito3n4 || digito3n4 == digito4n4 || digito4n4 == digito5n4)
             {
               Console.WriteLine($"Caiu no quarto if num: {num4}");
               Random random5 = new Random();
@@ -64,7 +68,8 @@ namespace Project
               int digito3n5 = int.Parse(num4String[2].ToString());
               int digito4n5 = int.Parse(num4String[3].ToString());
               int digito5n5 = int.Parse(num4String[4].ToString());
-              if (num5 + 5000 >= 59011 && num5 - 5000 <= 59011) {
+              if (num5 + 5000 >= 59011 && num5 - 5000 <= 59011)
+              {
                 Console.WriteLine($"Caiu no if do quinto sorteio num: {num5}");
               }
               else Console.WriteLine($"Este é o resultado do quinto sorteio: {num5}");
