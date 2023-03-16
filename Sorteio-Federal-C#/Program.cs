@@ -30,6 +30,10 @@ namespace Project
         Random random2 = new Random();
         int num2 = random2.Next(0, 100001);
         string num2String = num2.ToString();
+        if (num2String.Length < 5)
+        {
+          num2String = num2String.PadLeft(5, '0');
+        }
         int digito1n2 = int.Parse(num2String[0].ToString());
         int digito2n2 = int.Parse(num2String[1].ToString());
         int digito3n2 = int.Parse(num2String[2].ToString());
@@ -41,6 +45,10 @@ namespace Project
           Random random3 = new Random();
           int num3 = random3.Next(0, 100001);
           string num3String = num3.ToString();
+          if (num3String.Length < 5)
+          {
+            num3String = num3String.PadLeft(5, '0');
+          }
           int digito1n3 = int.Parse(num3String[0].ToString());
           int digito2n3 = int.Parse(num3String[1].ToString());
           int digito3n3 = int.Parse(num3String[2].ToString());
@@ -52,6 +60,10 @@ namespace Project
             Random random4 = new Random();
             int num4 = random4.Next(0, 100001);
             string num4String = num4.ToString();
+            if (num4String.Length < 5)
+            {
+              num4String = num4String.PadLeft(5, '0');
+            }
             int digito1n4 = int.Parse(num4String[0].ToString());
             int digito2n4 = int.Parse(num4String[1].ToString());
             int digito3n4 = int.Parse(num4String[2].ToString());
@@ -63,6 +75,10 @@ namespace Project
               Random random5 = new Random();
               int num5 = random5.Next(0, 100001);
               string num5String = num4.ToString();
+              if (num5String.Length < 5)
+              {
+                num5String = num5String.PadLeft(5, '0');
+              }
               int digito1n5 = int.Parse(num4String[0].ToString());
               int digito2n5 = int.Parse(num4String[1].ToString());
               int digito3n5 = int.Parse(num4String[2].ToString());
@@ -87,42 +103,16 @@ namespace Project
 }
 /*
 Alguns números gerados com a solução:
-15928
-17480
-17943
-21356
-24164
-24623
-25271
-25315
-25716
-26487
-27091
-29361
-30425
-30514
-30584
-31035
-31491
-32630
-34306
-35232
-35285
-36485
-40584
-40673
-40675
-41242
-41308
-47063
-47593
-50397
-52710
-54041
-57402
-57620
-60454
-60642
-61390
-72028
+01248
+06718
+10617
+21584
+27264
+42731
+48249
+59708
+60624
+65871
+79573
+29020
 */
