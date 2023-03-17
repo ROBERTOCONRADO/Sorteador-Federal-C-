@@ -11,93 +11,39 @@ namespace Project
     static void Main(string[] args)
     {
       //Solução que recebe o último número sorteado da federal e cria um sorteio com maior porcentagem de acerto.
-      int nSort = 94456;
-      Random random = new Random();
-      int num = random.Next(0, 100001);
-      string numString = num.ToString();
-      if (numString.Length < 5)
-      {
-        numString = numString.PadLeft(5, '0');
-      }
-      int digito1 = int.Parse(numString[0].ToString());//9
-      int digito2 = int.Parse(numString[1].ToString());//4
-      int digito3 = int.Parse(numString[2].ToString());//4
-      int digito4 = int.Parse(numString[3].ToString());//5
-      int digito5 = int.Parse(numString[4].ToString());//6
-      if (num + 10000 >= nSort || digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5 || digito1 == digito5 || digito2 == digito4 || digito1 >= 8 || digito2 == 4 || digito3 == 4 || digito4 == 5 || digito5 == 6 || digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5)
-      {
-        Console.WriteLine($"Caiu no primeiro if num: {num}");
-        Random random2 = new Random();
-        int num2 = random2.Next(0, 100001);
-        string num2String = num2.ToString();
-        if (num2String.Length < 5)
-        {
-          num2String = num2String.PadLeft(5, '0');
-        }
-        int digito1n2 = int.Parse(num2String[0].ToString());
-        int digito2n2 = int.Parse(num2String[1].ToString());
-        int digito3n2 = int.Parse(num2String[2].ToString());
-        int digito4n2 = int.Parse(num2String[3].ToString());
-        int digito5n2 = int.Parse(num2String[4].ToString());
-        if (num2 + 10000 >= nSort || digito1n2 == digito2n2 || digito2n2 == digito3n2 || digito3n2 == digito4n2 || digito4n2 == digito5n2 || digito1n2 == digito5n2 || digito2n2 == digito4n2 || digito1n2 >= 8 || digito2n2 == 4 || digito3n2 == 4 || digito4n2 == 5 || digito5n2 == 6 || digito1n2 == digito2n2 || digito2n2 == digito3n2 || digito3n2 == digito4n2 || digito4n2 == digito5n2)
-        {
-          Console.WriteLine($"Caiu no segundo if num: {num2}");
-          Random random3 = new Random();
-          int num3 = random3.Next(0, 100001);
-          string num3String = num3.ToString();
-          if (num3String.Length < 5)
-          {
-            num3String = num3String.PadLeft(5, '0');
+      int tentativas = 1000;
+      int valorSorteado = 94456;
+      int contador = 0;
+      string[] allStrings = new string[tentativas];
+
+      do {
+          Random random = new Random();
+          int num = random.Next(0, 100001);
+          string numString = num.ToString().PadLeft(5, '0');
+          int digito1 = int.Parse(numString[0].ToString());
+          int digito2 = int.Parse(numString[1].ToString());
+          int digito3 = int.Parse(numString[2].ToString());
+          int digito4 = int.Parse(numString[3].ToString());
+          int digito5 = int.Parse(numString[4].ToString());
+
+          bool digitosDuplicados = (digito1 == digito2 || digito2 == digito3 || digito3 == digito4 || digito4 == digito5 || digito1 == digito5 || digito2 == digito4);
+          bool digitosExcluidos = (digito1 >= 8 || digito2 == 4 || digito3 == 4 || digito4 == 5 || digito5 == 6);
+
+          if (num + 10000 >= valorSorteado || digitosDuplicados || digitosExcluidos) {
+              allStrings[contador] = numString;
+              contador++;
+              continue;
           }
-          int digito1n3 = int.Parse(num3String[0].ToString());
-          int digito2n3 = int.Parse(num3String[1].ToString());
-          int digito3n3 = int.Parse(num3String[2].ToString());
-          int digito4n3 = int.Parse(num3String[3].ToString());
-          int digito5n3 = int.Parse(num3String[4].ToString());
-          if (num3 + 10000 >= nSort || digito1n3 == digito2n3 || digito2n3 == digito3n3 || digito3n3 == digito4n3 || digito4n3 == digito5n3 || digito1n3 == digito5n3 || digito2n3 == digito4n3 || digito1n3 >= 8 || digito2n3 == 4 || digito3n3 == 4 || digito4n3 == 5 || digito5n3 == 6 || digito1n3 == digito2n3 || digito2n3 == digito3n3 || digito3n3 == digito4n3 || digito4n3 == digito5n3)
-          {
-            Console.WriteLine($"Caiu no terceiro if num: {num3}");
-            Random random4 = new Random();
-            int num4 = random4.Next(0, 100001);
-            string num4String = num4.ToString();
-            if (num4String.Length < 5)
-            {
-              num4String = num4String.PadLeft(5, '0');
-            }
-            int digito1n4 = int.Parse(num4String[0].ToString());
-            int digito2n4 = int.Parse(num4String[1].ToString());
-            int digito3n4 = int.Parse(num4String[2].ToString());
-            int digito4n4 = int.Parse(num4String[3].ToString());
-            int digito5n4 = int.Parse(num4String[4].ToString());
-            if (num4 + 10000 >= nSort || digito1n4 == digito2n4 || digito2n4 == digito3n4 || digito3n4 == digito4n4 || digito4n4 == digito5n4 || digito1n4 == digito5n4 || digito2n4 == digito4n4 || digito1n4 >= 8 || digito2n4 == 4 || digito3n4 == 4 || digito4n4 == 5 || digito5n4 == 6 || digito1n4 == digito2n4 || digito2n4 == digito3n4 || digito3n4 == digito4n4 || digito4n4 == digito5n4)
-            {
-              Console.WriteLine($"Caiu no quarto if num: {num4}");
-              Random random5 = new Random();
-              int num5 = random5.Next(0, 100001);
-              string num5String = num4.ToString();
-              if (num5String.Length < 5)
-              {
-                num5String = num5String.PadLeft(5, '0');
-              }
-              int digito1n5 = int.Parse(num4String[0].ToString());
-              int digito2n5 = int.Parse(num4String[1].ToString());
-              int digito3n5 = int.Parse(num4String[2].ToString());
-              int digito4n5 = int.Parse(num4String[3].ToString());
-              int digito5n5 = int.Parse(num4String[4].ToString());
-              if (num5 + 5000 >= 59011 && num5 - 5000 <= 59011)
-              {
-                Console.WriteLine($"Caiu no if do quinto sorteio num: {num5}");
-              }
-              else Console.WriteLine($"Este é o resultado do quinto sorteio: {num5}");
-            }
-            else Console.WriteLine($"Este é o resultado do quarto sorteio: {num4}");
-          }
-          else Console.WriteLine($"Este é o resultado do terceiro sorteio: {num3}");
-        }
-        else Console.WriteLine($"Este é o resultado do segundo sorteio: {num2}");
+          allStrings[contador] = numString;
+          Console.WriteLine($"Número válido gerado: {numString}");
+          break;
+      } while (contador < tentativas);
+
+      // Exibir todas as strings armazenadas na array
+      Console.WriteLine("\nTodas as strings geradas:");
+      for (int i = 0; i < contador; i++) {
+          Console.WriteLine(allStrings[i]);
       }
-      else Console.WriteLine($"Este é o resultado do primeiro sorteio: {num}");
-      Console.ReadLine();
     }
   }
 }
